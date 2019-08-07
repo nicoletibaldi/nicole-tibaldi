@@ -34,10 +34,12 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.0",
     "prettier": "^1.16.4"
   },
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
