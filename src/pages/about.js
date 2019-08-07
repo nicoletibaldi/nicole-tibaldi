@@ -2,10 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import {
-  Button,
-  HeaderBack,
+  HeaderLogo,
   HeadingXL,
-  Image,
   Layout,
   SEO,
   TextBody,
@@ -15,10 +13,9 @@ const About = ({ data }) => {
   return (
     <>
       <SEO title="About" />
-      <HeaderBack />
+      <HeaderLogo />
       <Layout>
         <HeadingXL>About</HeadingXL>
-        <Image fluid={data.RandomPhoto.childImageSharp.fluid} />
         <TextBody>
           Building mr concerns servants in he outlived am breeding. He so lain
           good miss when sell some at if. Told hand so an rich gave next. How
@@ -34,22 +31,9 @@ const About = ({ data }) => {
           estimable as. Nay any article enabled musical shyness yet sixteen yet
           blushes. Entire its the did figure wonder off.
         </TextBody>
-        <Button href="mailto:your&#64;email.com">Get in touch</Button>
       </Layout>
     </>
   );
 };
 
 export default About;
-
-export const query = graphql`
-  query {
-    RandomPhoto: file(relativePath: { eq: "RandomPhoto.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1400) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`;

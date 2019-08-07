@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { Button, HeadingXL, Layout, SEO, TextBody } from '../components';
+import {
+  Button,
+  HeaderBack,
+  HeadingXL,
+  Layout,
+  SEO,
+  TextBody,
+} from '../components';
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,18 +27,16 @@ const NotFoundPage = () => {
   return (
     <>
       <SEO title="404: Not found" />
+      <HeaderBack />
       <Layout>
         <Wrapper>
-          <HeadingXL>NOT FOUND</HeadingXL>
+          <HeadingXL>NOT FOUND.</HeadingXL>
           <TextBody style={{ textAlign: 'center' }}>
             This page doesn&#39;t exist{' '}
             <span role="img" aria-label="duh">
               😓
             </span>
           </TextBody>
-          <Link to="/">
-            <ButtonCentered>Go home</ButtonCentered>
-          </Link>
         </Wrapper>
       </Layout>
     </>

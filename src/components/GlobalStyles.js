@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import * as font from '../fonts';
-
 export default createGlobalStyle`
   * {
     -webkit-box-sizing: border-box;
@@ -53,16 +51,14 @@ export default createGlobalStyle`
   }
 
   @font-face {
-    font-family: "IBMPlexMono";
-    src: url('${font.IBMPlexMono400}') format("woff2");
+    font-family: 'Libre Caslon Text', serif;
     font-weight: 400;
     font-style: normal;
     font-display: block;
   }
 
   @font-face {
-    font-family: "IBMPlexMono";
-    src: url('${font.IBMPlexMono700}') format("woff2");
+    font-family: 'Libre Caslon Text', serif;
     font-weight: 700;
     font-style: normal;
     font-display: block;
@@ -81,12 +77,12 @@ export default createGlobalStyle`
     --accent-color: hsl(339, 100%, 55%);
     background-color: var(--light-color);
     font-family: 'IBMPlexMono', sans-serif;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 400;
     color: var(--dark-color);
 
     @media (max-width: 849px) {
-      font-size: 17px;
+      font-size: 16px;
     }
   }
 `;

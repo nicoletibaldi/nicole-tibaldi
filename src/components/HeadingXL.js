@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.h1`
   display: block;
   margin: 0 auto 10vh auto;
-  font-size: 80px;
+  font-size: 40px;
   line-height: 1.2;
   text-align: center;
   font-weight: 700;

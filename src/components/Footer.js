@@ -8,25 +8,30 @@ const Container = styled.footer`
   padding-bottom: 3vh;
   margin-top: 20vh;
   text-align: left;
-  font-size: 17px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 
   @media (max-width: 849px) {
-    font-size: 16px;
+    font-size: 10px;
   }
 `;
 
 const Footer = () => {
   return (
     <Container>
-      <ButtonLink href="https://mobile.twitter.com/lewislbr" target="_blank">
-        Twitter
-      </ButtonLink>
-      <ButtonLink
-        href="https://github.com/lewislbr/lewis-gatsby-starter-blog"
-        target="_blank"
-      >
-        Github
-      </ButtonLink>
+      <div>
+        <ButtonLink href="https://twitter.com/nicoletibaldi" target="_blank">
+          Twitter
+        </ButtonLink>
+        <ButtonLink href="https://github.com/nicoletibaldi" target="_blank">
+          Github
+        </ButtonLink>
+        <ButtonLink href="https://linkedin.com/in/ntibaldi92" target="_blank">
+          LinkedIn
+        </ButtonLink>
+      </div>
+      <div>© 2019 Nicole Tibaldi</div>
     </Container>
   );
 };
