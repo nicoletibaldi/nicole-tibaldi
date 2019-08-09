@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import {
   HeaderLogo,
+  HeadingXL,
   HeadingL,
   Layout,
   SEO,
@@ -25,6 +26,7 @@ const Blog = ({ data }) => {
     <>
       <SEO title="Blog" />
       <HeaderLogo />
+      <HeadingXL>Blog</HeadingXL>
       <Layout>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Link to={node.fields.slug}>

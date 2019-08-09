@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { HeaderLogo, HeadingXL, Layout, SEO } from '../components';
@@ -25,7 +24,7 @@ const Text = styled.p`
   color: var(--dark-color-light);
 
   @media (max-width: 849px) {
-    font-size: 19px;
+    font-size: 16px;
   }
 `;
 
@@ -34,7 +33,7 @@ const Home = ({ data }) => {
     <>
       <SEO title="Home" />
       <HeaderLogo />
-      <Layout>
+      <Layout attribution>
         <Hero>
           <HeadingXL>Hi! I'm Nicole.</HeadingXL>
           <Text>

@@ -43,6 +43,9 @@ const HeaderLogo = () => {
       <Link to="/about">
         <p>about</p>
       </Link>
+      <Link to="/contact">
+        <p>contact</p>
+      </Link>
     </HeaderWrapper>
   );
 };

@@ -24,7 +24,7 @@ const Content = styled.main`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = props => {
   return (
     <StaticQuery
       query={graphql`
@@ -40,8 +40,8 @@ const Layout = ({ children }) => {
         <>
           <GlobalStyles />
           <Wrapper>
-            <Content>{children}</Content>
-            <Footer />
+            <Content>{props.children}</Content>
+            <Footer attribution={props.attribution} />
           </Wrapper>
         </>
       )}
@@ -51,6 +51,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  attribution: PropTypes.bool,
 };
 
 export default Layout;
