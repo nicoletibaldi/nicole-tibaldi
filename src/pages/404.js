@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  HeaderBack,
-  HeadingXL,
-  Layout,
-  SEO,
-  TextBody,
-} from '../components';
+import { HeaderBack, HeadingXL, Layout, SEO, TextBody } from '../components';
 
 const Wrapper = styled.div`
   display: flex;

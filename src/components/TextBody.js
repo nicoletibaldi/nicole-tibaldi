@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.p`
-  display: block;
+  display: flex;
+  flex-direction: column;
   line-height: 1.5;
   margin: 0 5% 5vh 5%;
   letter-spacing: -0.003em;

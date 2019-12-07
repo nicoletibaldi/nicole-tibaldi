@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HeaderLogo, HeadingXL, Layout, SEO, TextBody } from '../components';
 
-const Contact = ({ data }) => {
+const Contact = () => {
   return (
     <>
       <SEO title="Contact" />

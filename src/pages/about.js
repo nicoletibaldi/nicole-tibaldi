@@ -1,19 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { HeaderLogo, HeadingL, HeadingXL, Layout, SEO } from '../components';
-
-const Resume = styled.div`
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
-  margin: 0 5% 5vh 5%;
-  letter-spacing: -0.003em;
-
-  color: var(--dark-color-light);
-`;
-
-const Title = styled.h1``;
+import {
+  HeaderLogo,
+  HeadingL,
+  HeadingXL,
+  Layout,
+  SEO,
+  TextBody,
+} from '../components';
 
 const Company = styled.a`
   text-decoration: underline;
@@ -24,37 +19,32 @@ const Location = styled.p`
   font-style: italic;
 `;
 
-const Dates = styled.p`
-  font-size: 16px;
-  margin-bottom: 2vh;
-`;
-
 const Text = styled.p`
   font-size: 16px;
   margin-bottom: 2vh;
 `;
 
-const About = ({ data }) => {
+const About = () => {
   return (
     <>
       <SEO title="About" />
       <HeaderLogo />
       <Layout>
         <HeadingXL>About</HeadingXL>
-        <Resume>
+        <TextBody>
           <HeadingL>Experience</HeadingL>
-          <Title>
+          <h1>
             Engineering Manager —{' '}
             <Company href="http://circleci.com">CircleCI</Company>
-          </Title>
+          </h1>
           <Location>Remote (San Francisco, CA)</Location>
-          <Dates> June 2019 - Present</Dates>
-          <Title>
+          <Text> June 2019 - Present</Text>
+          <h1>
             Frontend Engineer —{' '}
             <Company href="http://manifold.co">Manifold</Company>
-          </Title>
+          </h1>
           <Location>Remote (Halifax, NS) </Location>
-          <Dates>November 2017 - June 2019</Dates>
+          <Text>November 2017 - June 2019</Text>
           <Text>
             Frontend engineer for several of Manifold's internal teams.
             Developed user-facing applications using React, JavaScript, and
@@ -79,9 +69,9 @@ const About = ({ data }) => {
             <br />- Wrote and refined talks about hiring, testing, and soft
             skills - accepted to five conferences in 2019
           </Text>
-          <Title>Software Engineer — BuildIt @ wiprodigital</Title>
+          <h1>Software Engineer — BuildIt @ wiprodigital</h1>
           <Location>Brooklyn, NY</Location>
-          <Dates>March 2017 - October 2017</Dates>
+          <Text>March 2017 - October 2017</Text>
           <Text>
             Fullstack engineer for a consultancy focused on digital
             transformation. Along with client work, developed an internal room
@@ -96,12 +86,12 @@ const About = ({ data }) => {
             <br />- Successfully advocated for a refactor of Redux actions and
             reducers, increasing clarity and ease of future development
           </Text>
-          <Title>
+          <h1>
             Frontend Engineer —{' '}
             <Company href="http://tablethotels.com">Tablet Hotels</Company>
-          </Title>
+          </h1>
           <Location>New York, NY</Location>
-          <Dates>August 2016 - March 2017</Dates>
+          <Text>August 2016 - March 2017</Text>
           <Text>
             Engineer on Tablet's frontend team. Worked independently on projects
             as the only frontend engineer during a transition period of ~3
@@ -116,9 +106,9 @@ const About = ({ data }) => {
             <br />- Implemented new search feature using Google Maps API
           </Text>
           <HeadingL>Education</HeadingL>
-          <Title>Web Development — App Academy</Title>
+          <h1>Web Development — App Academy</h1>
           <Location>New York, NY</Location>
-          <Dates>April 2016 - July 2016</Dates>
+          <Text>April 2016 - July 2016</Text>
           <Text>
             1000-hour full-stack web development bootcamp with below 3%
             acceptance rate
@@ -128,14 +118,14 @@ const About = ({ data }) => {
             REST, security, single-page applications, and web development best
             practices
           </Text>
-          <Title>BA Music Performance — SUNY New Paltz</Title>
+          <h1>BA Music Performance — SUNY New Paltz</h1>
           <Location>New Paltz, NY</Location>
-          <Dates>August 2007 - May 2010</Dates>
+          <Text>August 2007 - May 2010</Text>
           <Text>GPA 3.9, Summa cum laude</Text>
           <Text>
             Named outstanding graduate by School of Fine and Performing Arts
           </Text>
-        </Resume>
+        </TextBody>
       </Layout>
     </>
   );

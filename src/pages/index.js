@@ -28,7 +28,7 @@ const Text = styled.p`
   }
 `;
 
-const Home = ({ data }) => {
+const Home = () => {
   return (
     <>
       <SEO title="Home" />
