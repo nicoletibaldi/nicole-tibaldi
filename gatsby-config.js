@@ -1,3 +1,9 @@
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  host: process.env.CONTENTFUL_HOST
+}
+
 module.exports = {
   siteMetadata: {
     title: `Nicole Tibaldi`,
@@ -60,6 +66,20 @@ module.exports = {
         theme_color: `#fcfcfc`,
         display: `standalone`,
       },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: contentfulConfig,
+    },
+    {
+      resolve: 'gatsby-plugin-contentful-optional-fields',
+      options: {
+        optionalFields: {
+          ContentfulConferenceTalk: {
+            videoLink: 'String'
+          }
+        }
+      }
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,

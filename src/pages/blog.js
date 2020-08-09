@@ -28,12 +28,12 @@ const Blog = ({ data }) => {
       <HeaderLogo />
       <HeadingXL>Blog</HeadingXL>
       <Layout>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Link to={node.fields.slug}>
-            <Post key={node.id}>
-              <HeadingL>{node.frontmatter.title}</HeadingL>
-              <TextBody>{node.excerpt}</TextBody>
-              <TextDate>{node.frontmatter.date}</TextDate>
+        {data.allContentfulBlog.edges.map(edge => (
+          <Link to={`/blog/${edge.node.slug}`} key={edge.node.id}>
+            <Post>
+              <HeadingL>{edge.node.title}</HeadingL>
+              <TextBody>{edge.node.title}</TextBody>
+              <TextDate>{edge.node.date}</TextDate>
             </Post>
           </Link>
         ))}
@@ -44,20 +44,15 @@ const Blog = ({ data }) => {
 
 export default Blog;
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+export const pageQuery = graphql`
+  query blogQuery {
+    allContentfulBlog(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
+          slug
           id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          fields {
-            slug
-          }
-          excerpt
+          title
+          date
         }
       }
     }

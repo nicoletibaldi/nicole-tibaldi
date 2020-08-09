@@ -13,29 +13,37 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  return graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
+exports.createPages = ({graphql, boundActionCreators}) => {
+  const {createPage} = boundActionCreators
+  return new Promise((resolve, reject) => {
+    const blogPostTemplate = path.resolve('src/templates/blog-post.js')
+    resolve(
+      graphql(`
+        {
+          allContentfulBlog (limit: 100) {
+            edges {
+              node {
+                id
+                slug
+              }
             }
           }
         }
-      }
-    }
-  `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/blog-post.js`),
-        context: {
-          slug: node.fields.slug,
-        },
-      });
-    });
-  });
-};
+      `).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        result.data.allContentfulBlog.edges.forEach((edge) => {
+          createPage ({
+            path: `/blog/${edge.node.slug}`,
+            component: blogPostTemplate,
+            context: {
+              slug: edge.node.slug
+            }
+          })
+        })
+        return
+      })
+    )
+  })
+}

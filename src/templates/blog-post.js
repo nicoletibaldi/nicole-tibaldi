@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import {
@@ -10,30 +11,35 @@ import {
   TextDate,
 } from '../components';
 
-export default ({ data }) => {
-  const post = data.markdownRemark;
+class BlogPost extends Component {
+  render() {
+    const { title, date } = this.props.data.contentfulBlog;
+    return (
+      <>
+        <SEO title={title} />
+        <HeaderBack />
+        <Layout>
+          <HeadingXL>{title}</HeadingXL>
+          <TextDate>{date}</TextDate>
+          <TextBody>{title}</TextBody>
+        </Layout>
+      </>
+    );
+  }
+}
 
-  return (
-    <>
-      <SEO title={post.frontmatter.title} />
-      <HeaderBack />
-      <Layout>
-        <HeadingXL>{post.frontmatter.title}</HeadingXL>
-        <TextDate>{post.frontmatter.date}</TextDate>
-        <TextBody dangerouslySetInnerHTML={{ __html: post.html }} />
-      </Layout>
-    </>
-  );
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
+export default BlogPost;
+
+export const pageQuery = graphql`
+  query blogPostQuery($slug: String!) {
+    contentfulBlog(slug: { eq: $slug }) {
+      title
+      slug
+      date
     }
   }
 `;
