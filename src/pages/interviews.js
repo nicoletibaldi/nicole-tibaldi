@@ -3,13 +3,7 @@ import styled from 'styled-components';
 
 import { formatDate } from '../utils/';
 
-import {
-  HeaderLogo,
-  HeadingXL,
-  Layout,
-  SEO,
-  TextBody,
-} from '../components';
+import { HeaderLogo, HeadingXL, Layout, SEO, TextBody } from '../components';
 
 const Link = styled.a`
   text-decoration: underline;
@@ -62,9 +56,9 @@ export default Interviews;
 export const pageQuery = graphql`
   query interviewQuery {
     allContentfulOtherTalk(
-      filter: { node_locale: { eq: "en-US" } },
+      filter: { node_locale: { eq: "en-US" } }
       sort: { fields: date, order: DESC }
-      ) {
+    ) {
       edges {
         node {
           id

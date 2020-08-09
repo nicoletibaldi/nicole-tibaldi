@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import { formatDate } from '../utils/';
 
@@ -15,7 +17,15 @@ import {
 
 class BlogPost extends Component {
   render() {
-    const { title, date } = this.props.data.contentfulBlog;
+    const { title, date, content } = this.props.data.contentfulBlog;
+    const options = {
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, children) => (
+          <p className="copy">{children}</p>
+        ),
+      },
+      renderMark: {},
+    };
     return (
       <>
         <SEO title={title} />
@@ -23,7 +33,9 @@ class BlogPost extends Component {
         <Layout>
           <HeadingXL>{title}</HeadingXL>
           <TextDate>{formatDate(date)}</TextDate>
-          <TextBody>{title}</TextBody>
+          <TextBody>
+            {documentToReactComponents(content.json, options)}
+          </TextBody>
         </Layout>
       </>
     );
@@ -42,6 +54,9 @@ export const pageQuery = graphql`
       title
       slug
       date
+      content {
+        json
+      }
     }
   }
 `;

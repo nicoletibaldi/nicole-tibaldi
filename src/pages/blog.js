@@ -34,7 +34,7 @@ const Blog = ({ data }) => {
           <Link to={`/blog/${edge.node.slug}`} key={edge.node.id}>
             <Post>
               <HeadingL>{edge.node.title}</HeadingL>
-              <TextBody>{edge.node.title}</TextBody>
+              <TextBody>{edge.node.excerpt}</TextBody>
               <TextDate>{formatDate(edge.node.date)}</TextDate>
             </Post>
           </Link>
@@ -55,6 +55,7 @@ export const pageQuery = graphql`
           id
           title
           date
+          excerpt
         }
       }
     }

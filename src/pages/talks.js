@@ -3,13 +3,7 @@ import styled from 'styled-components';
 
 import { formatDate } from '../utils/';
 
-import {
-  HeaderLogo,
-  HeadingXL,
-  Layout,
-  SEO,
-  TextBody,
-} from '../components';
+import { HeaderLogo, HeadingXL, Layout, SEO, TextBody } from '../components';
 
 const Link = styled.a`
   text-decoration: underline;
@@ -74,9 +68,9 @@ export default Talks;
 export const pageQuery = graphql`
   query talkQuery {
     allContentfulConferenceTalk(
-      filter: { node_locale: { eq: "en-US" } },
+      filter: { node_locale: { eq: "en-US" } }
       sort: { fields: talkDate, order: DESC }
-      ) {
+    ) {
       edges {
         node {
           id
