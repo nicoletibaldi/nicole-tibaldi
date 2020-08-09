@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import { formatDate } from '../utils/';
+
 import {
   HeaderBack,
   HeadingXL,
@@ -20,7 +22,7 @@ class BlogPost extends Component {
         <HeaderBack />
         <Layout>
           <HeadingXL>{title}</HeadingXL>
-          <TextDate>{date}</TextDate>
+          <TextDate>{formatDate(date)}</TextDate>
           <TextBody>{title}</TextBody>
         </Layout>
       </>

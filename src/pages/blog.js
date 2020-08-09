@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 
+import { formatDate } from '../utils/';
+
 import {
   HeaderLogo,
   HeadingXL,
@@ -33,7 +35,7 @@ const Blog = ({ data }) => {
             <Post>
               <HeadingL>{edge.node.title}</HeadingL>
               <TextBody>{edge.node.title}</TextBody>
-              <TextDate>{edge.node.date}</TextDate>
+              <TextDate>{formatDate(edge.node.date)}</TextDate>
             </Post>
           </Link>
         ))}
