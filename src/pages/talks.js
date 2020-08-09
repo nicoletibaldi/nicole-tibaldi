@@ -97,7 +97,10 @@ export default Talks;
 
 export const pageQuery = graphql`
   query talkQuery {
-    allContentfulConferenceTalk(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulConferenceTalk(
+      filter: { node_locale: { eq: "en-US" } },
+      sort: { fields: talkDate, order: DESC }
+      ) {
       edges {
         node {
           id
@@ -111,7 +114,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulOtherTalk(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulOtherTalk(
+      filter: { node_locale: { eq: "en-US" } },
+      sort: { fields: date, order: DESC }
+      ) {
       edges {
         node {
           id
