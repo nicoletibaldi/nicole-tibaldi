@@ -56,7 +56,7 @@ const ConferenceTalkEntry = ({ node }) => {
 const OtherTalkEntry = ({ node }) => {
   return (
     <>
-      <hi>{node.talkSource}</hi>
+      <h1>{node.talkSource}</h1>
       <Detail>
         {node.talkType} - {formatDate(node.date)}
       </Detail>
