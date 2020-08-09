@@ -37,6 +37,9 @@ const HeaderLogo = () => {
       <Link to="/talks">
         <p>talks</p>
       </Link>
+      <Link to="/interviews">
+        <p>interviews</p>
+      </Link>
       <Link to="/blog">
         <p>blog</p>
       </Link>

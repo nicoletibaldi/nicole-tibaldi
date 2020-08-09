@@ -6,7 +6,6 @@ import { formatDate } from '../utils/';
 import {
   HeaderLogo,
   HeadingXL,
-  HeadingL,
   Layout,
   SEO,
   TextBody,
@@ -31,7 +30,7 @@ const Text = styled.div`
   margin-bottom: 2vh;
 `;
 
-const ConferenceTalkEntry = ({ node }) => {
+const TalkEntry = ({ node }) => {
   return (
     <>
       <TitleLink href={node.conferenceSite} key={node.id}>
@@ -53,39 +52,16 @@ const ConferenceTalkEntry = ({ node }) => {
   );
 };
 
-const OtherTalkEntry = ({ node }) => {
-  return (
-    <>
-      <h1>{node.talkSource}</h1>
-      <Detail>
-        {node.talkType} - {formatDate(node.date)}
-      </Detail>
-      <Text>
-        <Link href={node.talkLink}>{node.talkTitle}</Link>
-      </Text>
-    </>
-  );
-};
-
 const Talks = ({ data }) => {
-  console.log(data);
-  console.log(typeof new Date());
   return (
     <>
-      <SEO title="Talks" />
+      <SEO title="Conference Talks" />
       <HeaderLogo />
       <Layout>
-        <HeadingXL>Talks</HeadingXL>
+        <HeadingXL>Conference Talks</HeadingXL>
         <TextBody>
-          <HeadingL>Conference Talks</HeadingL>
           {data.allContentfulConferenceTalk.edges.map(edge => (
-            <ConferenceTalkEntry key={edge.node.id} node={edge.node} />
-          ))}
-          <br />
-          <br />
-          <HeadingL>Other Talks</HeadingL>
-          {data.allContentfulOtherTalk.edges.map(edge => (
-            <OtherTalkEntry key={edge.node.id} node={edge.node} />
+            <TalkEntry key={edge.node.id} node={edge.node} />
           ))}
         </TextBody>
       </Layout>
@@ -111,21 +87,6 @@ export const pageQuery = graphql`
           talkDate
           slideLink
           videoLink
-        }
-      }
-    }
-    allContentfulOtherTalk(
-      filter: { node_locale: { eq: "en-US" } },
-      sort: { fields: date, order: DESC }
-      ) {
-      edges {
-        node {
-          id
-          talkSource
-          talkType
-          date
-          talkTitle
-          talkLink
         }
       }
     }
