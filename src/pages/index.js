@@ -39,13 +39,14 @@ const Home = () => {
           <Text>
             I'm an engineering leader, a frontend engineer, a conference
             speaker, and an avid lover of both dogs and baseball. Currently, I'm
-            working as an Engineering Manager at CircleCI.
+            working as an Engineering Manager at Gatsby.
           </Text>
           <Text>
-            In recent years, I have worked as a frontend engineer for both
-            Tablet Hotels and Manifold. I've focused my energy on frontend best
-            practices, collaborating with design and product, and building good
-            habits around testing.
+            In recent years, I have worked as an Engineering Manager for
+            CircleCI, and as a frontend engineer for both Tablet Hotels and
+            Manifold. I've focused my energy on frontend best practices,
+            collaborating with design and product, and building good habits
+            around testing.
           </Text>
           <Text>
             I've worked in various leadership roles helping teams understand
