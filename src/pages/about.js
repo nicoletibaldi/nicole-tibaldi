@@ -1,14 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  HeaderLogo,
-  HeadingL,
-  HeadingXL,
-  Layout,
-  SEO,
-  TextBody,
-} from '../components';
+import { HeaderLogo, HeadingXL, HeadingL, Layout, SEO, TextBody } from '../components';
 
 const Company = styled.a`
   text-decoration: underline;
@@ -24,7 +17,27 @@ const Text = styled.p`
   margin-bottom: 2vh;
 `;
 
-const About = () => {
+const Experience = ({ node }) => {
+  return (
+    <>
+      <h1>
+      {node.jobTitle} —{' '}
+      <Company href={node.companyLink}>{node.companyName}</Company>
+      </h1>
+      <Location>{node.location}</Location>
+      <Text>{node.startDate} - {node.endDate}</Text>
+      <Text>
+      - {node.accomplishment1}
+      <br />
+      - {node.accomplishment2}
+      <br />
+      - {node.accomplishment3}
+      </Text>
+    </>
+  );
+};
+
+const About = ({data}) => {
   return (
     <>
       <SEO title="About" />
@@ -33,78 +46,9 @@ const About = () => {
         <HeadingXL>About</HeadingXL>
         <TextBody>
           <HeadingL>Experience</HeadingL>
-          <h1>
-            Engineering Manager —{' '}
-            <Company href="http://circleci.com">CircleCI</Company>
-          </h1>
-          <Location>Remote (San Francisco, CA)</Location>
-          <Text> June 2019 - Present</Text>
-          <h1>
-            Frontend Engineer —{' '}
-            <Company href="http://manifold.co">Manifold</Company>
-          </h1>
-          <Location>Remote (Halifax, NS) </Location>
-          <Text>November 2017 - June 2019</Text>
-          <Text>
-            Frontend engineer for several of Manifold's internal teams.
-            Developed user-facing applications using React, JavaScript, and
-            Styled Components. Spent a total of one year in two different
-            leadership roles, during which time I was responsible for
-            collaboration with product and design, agile processes, and team
-            delivery. Was heavily involved in the evolution of Manifold's
-            technical hiring process, with a focus on faster turnaround and more
-            diverse hires.
-          </Text>
-          <Text>
-            Notable accomplishments:
-            <br />
-            - Led frontend testing efforts, which resulted in an increase in
-            coverage from less than 10% to 80% over a 6-month period
-            <br />
-            - Led self-service partner onboarding project, removing manual
-            process & saving engineering time
-            <br />
-            - Created animations and d3.js visualizations to improve UX for
-            product billing pages
-            <br />- Wrote and refined talks about hiring, testing, and soft
-            skills - accepted to five conferences in 2019
-          </Text>
-          <h1>Software Engineer — BuildIt @ wiprodigital</h1>
-          <Location>Brooklyn, NY</Location>
-          <Text>March 2017 - October 2017</Text>
-          <Text>
-            Fullstack engineer for a consultancy focused on digital
-            transformation. Along with client work, developed an internal room
-            booking tool for use in BuildIt's various offices. Acted as a
-            representative for the team by leading the vast majority of internal
-            demos and presentations.
-          </Text>
-          <Text>
-            Notable accomplishments:
-            <br />
-            - Led TDD efforts in React codebase, using Jest and Enzyme
-            <br />- Successfully advocated for a refactor of Redux actions and
-            reducers, increasing clarity and ease of future development
-          </Text>
-          <h1>
-            Frontend Engineer —{' '}
-            <Company href="http://tablethotels.com">Tablet Hotels</Company>
-          </h1>
-          <Location>New York, NY</Location>
-          <Text>August 2016 - March 2017</Text>
-          <Text>
-            Engineer on Tablet's frontend team. Worked independently on projects
-            as the only frontend engineer during a transition period of ~3
-            months. Assisted in hiring new frontend team members and improving
-            hiring process
-          </Text>
-          <Text>
-            Notable accomplishments
-            <br />
-            - Participated in a rewrite of Tablet’s consumer-facing booking
-            site, transitioning from Knockout.js to React
-            <br />- Implemented new search feature using Google Maps API
-          </Text>
+          {data.allContentfulExperience.edges.map(edge => (
+            <Experience key={edge.node.position} node={edge.node} />
+          ))}
           <HeadingL>Education</HeadingL>
           <h1>Web Development — App Academy</h1>
           <Location>New York, NY</Location>
@@ -132,3 +76,28 @@ const About = () => {
 };
 
 export default About;
+
+export const pageQuery = graphql`
+  query experienceQuery {
+    allContentfulExperience(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: position, order: DESC }
+    ) {
+      edges {
+        node {
+          jobTitle
+          companyName
+          startDate
+          endDate
+          location
+          companyLink
+          accomplishment1
+          accomplishment2
+          accomplishment3
+          position
+        }
+      }
+    }
+  }
+`;
+
