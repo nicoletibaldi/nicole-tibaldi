@@ -40,9 +40,6 @@ const HeaderLogo = () => {
       <Link to="/interviews">
         <p>interviews</p>
       </Link>
-      <Link to="/blog">
-        <p>blog</p>
-      </Link>
       <Link to="/about">
         <p>about</p>
       </Link>
