@@ -26,13 +26,15 @@ const Experience = ({ node }) => {
       </h1>
       <Location>{node.location}</Location>
       <Text>{node.startDate} - {node.endDate}</Text>
-      <Text>
-      - {node.accomplishment1}
-      <br />
-      - {node.accomplishment2}
-      <br />
-      - {node.accomplishment3}
-      </Text>
+      {node.accomplishment1 &&
+        <Text>
+        - {node.accomplishment1}
+        <br />
+        - {node.accomplishment2}
+        <br />
+        - {node.accomplishment3}
+        </Text>
+      }
     </>
   );
 };
