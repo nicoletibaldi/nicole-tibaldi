@@ -37,25 +37,22 @@ const Home = () => {
         <Hero>
           <HeadingXL>Hi! I'm Nicole.</HeadingXL>
           <Text>
-            I'm an engineering leader, a frontend engineer, a conference
-            speaker, and an avid lover of both dogs and baseball. Currently, I'm
-            working as an Engineering Manager at Gatsby.
+            I'm an engineering leader, frontend engineer, and conference speaker.
+            Currently, I'm a Senior Engineering Manager at The New York Times.
           </Text>
           <Text>
-            In recent years, I have worked as an Engineering Manager for
-            CircleCI, and as a frontend engineer for both Tablet Hotels and
-            Manifold. I've focused my energy on frontend best practices,
+            My past management experience includes roles at CircleCI and Gatsby. 
+            As an engineering leader, I've helped teams use process and data to better
+            understand their work and move toward faster delivery. I care deeply about 
+            distributed teams, and have worked tirelessly to develop productive 
+            and sustainable remote work practices. I am equally passionate about improving 
+            tech hiring, with the objective of making interviews more inclusive.
+          </Text>
+          <Text>
+            As an individual contributor, I have been a frontend engineer for both Tablet Hotels
+            and Manifold. I've focused my energy on frontend best practices,
             collaborating with design and product, and building good habits
             around testing.
-          </Text>
-          <Text>
-            I've worked in various leadership roles helping teams understand
-            their work, move toward faster delivery, and build trust and
-            rapport. I care deeply about culture, and more-specifically, remote
-            culture. I'm always trying to make it easier for my teams to
-            collaborate while working from the places that are most comfortable
-            for them. I have also spent many hours trying to improve tech hiring
-            and make it more inclusive.
           </Text>
         </Hero>
       </Layout>
